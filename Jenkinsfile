@@ -7,10 +7,16 @@ pipeline{
     }
 
     stages{
+
         // Clean WorkSpace Before Build
         stage('Clean Before Build'){
             steps{
                 cleanWs()
+            }
+        }
+        stage('Checkout'){
+            steps{
+                Checkout scm
             }
         }
         stage('Build in Docker'){
