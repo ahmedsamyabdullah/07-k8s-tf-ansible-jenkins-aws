@@ -19,6 +19,8 @@ pipeline{
                 checkout scm
             }
         }
+
+        // Build Stage
         stage('Build in Docker'){
             agent{
                 docker{
@@ -36,6 +38,22 @@ pipeline{
                     npm --version
                     npm install --cache $WORKSPACE/.npm
                     npm run build
+                '''
+            }
+        }
+
+        // Test Stage
+        stage('Test'){
+            agent{
+                docker{
+                    image 'node:18'
+                    reuseNode true 
+                }
+            }
+            steps{
+                sh '''
+                    test -f build/index.html
+                    npm test
                 '''
             }
         }
