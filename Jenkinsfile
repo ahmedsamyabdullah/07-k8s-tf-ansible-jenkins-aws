@@ -9,14 +9,8 @@ pipeline{
         }
         stage('Build'){
             steps{
-                sh 'echo "Completed!'
+                sh 'echo "Completed!"'
             }
-        }
-    }
-    // Clean Workspace After Pipeline
-    post{
-        always{
-            cleanWS()
         }
     }
 }
