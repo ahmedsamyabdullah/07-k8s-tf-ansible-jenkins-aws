@@ -16,7 +16,7 @@ pipeline{
         stage('Build in Docker'){
             agent{
                 docker{
-                    images 'node:18'
+                    image 'node:18'
                     reuseNode true    // Option
                 }
             }
