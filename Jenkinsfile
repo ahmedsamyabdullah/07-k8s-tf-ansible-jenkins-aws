@@ -4,7 +4,7 @@ pipeline{
         // Clean WorkSpace Before Build
         stage('Clean Before Build'){
             steps{
-                cleanWS()
+                cleanWs()
             }
         }
         stage('Build'){
