@@ -13,4 +13,10 @@ pipeline{
             }
         }
     }
+    // Clean After Pipeline Completed
+    post{
+        always{
+            cleanWs()
+        }
+    }
 }
