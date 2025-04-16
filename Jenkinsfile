@@ -31,11 +31,10 @@ pipeline{
                     rm -rf node_modules package-lock.json
                     npm cache clean --force
                     mkdir -p $WORKSPACE/.npm
-                    npm config set cache $WORKSPACE/.npm --global
                     echo "Building APP ...."
                     node --version
                     npm --version
-                    npm install
+                    npm install --cache $WORKSPACE/.npm
                     npm run build
                 '''
             }
